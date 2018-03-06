@@ -32,5 +32,15 @@ gplot_ctrl* gplot_init (void) {
         fprintf(stdderr, "gplot_init(): Eroare alocare memorie \n");
         return NULL;
     }
-}
+    
+    if((handle->gp = popen("gnuplot", "w")) == NULL) {
+        fprintf(stderr, "gplot_init(): Eroare deschidere subproces gplot \n");
+        free(handle);
+        return NULL;
+    }
+
+    strcpy(handle->pstyle, "lines");
+    return handle;
+} // gplot_init();
+
 
