@@ -38,6 +38,17 @@ int check_X_display(void);
  *************************************************************/
 gplot_ctrl* gplot_init(void);
 
+/*************************************************************
+ * Nume: gplot_cmd()
+ * Intrare: Handle pentru sesiunea activa: gplot_ctrl, lista variabila de argumente - argumente gnuplot
+ * Iesire: 
+ * Functionalitate: Functia asigura comunicarea cu subprocesul gnuplot activ.
+ * Obs: Sintaxa comenzilor gnuplot nu este validata.
+ *************************************************************/
+
+void gplot_cmd(gplot_ctrl * h, char * cmd, ...);
+
+
 
 #endif
 

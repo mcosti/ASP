@@ -43,4 +43,15 @@ gplot_ctrl* gplot_init (void) {
     return handle;
 } // gplot_init();
 
+void gplot_cmd(gplot_ctrl * h, char * cmd, ...) {
+    va_list ap;
+    char local_cmd[GP_CMD_SIZE];
+    va_start(ap, cmd); // Initializam lista
+    vsprintf(local_cmd, cmd, ap); // Variabila in care stocam, ultimul element, lista.
+    va_end(ap);
+    strcat(local_cmd, "\n"); // Terminator pentru comanda
+    fputs(local_cmd, h->gp);
+    fflush(h->gp); // Eliminam new line-ul din stream
+    return;
+}
 
