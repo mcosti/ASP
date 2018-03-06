@@ -41,7 +41,18 @@ gplot_ctrl* gplot_init (void) {
 
     strcpy(handle->pstyle, "lines");
     return handle;
-} // gplot_init();
+} // gplot_init()
+
+void gplot_close(gplot_ctrl *h) {
+    if(check_X_display()) return;
+    if(pclose(h->gp) == -1) {
+        fprintf(stderr, "gplot_close(): comunicarea cu subprocesul gnuplot a fost pierduta. \n");
+        free(h);
+        return;
+    }
+    free(h);
+    return;
+} // gplot_close()
 
 void gplot_cmd(gplot_ctrl * h, char * cmd, ...) {
     va_list ap;
@@ -61,7 +72,7 @@ void gplot_set_xlabel(gplot_ctrl * h, char * xtitle) {
     sprintf(local_cmd, "set xlabel \"%s\"", xtitle);
     gplot_cmd(h, local_cmd);
     return;
-}
+} // gplot_set_xlabel()
 
 void gplot_set_ylabel(gplot_ctrl * h, char * ytitle) {
     if(check_X_display()) return;
@@ -69,7 +80,7 @@ void gplot_set_ylabel(gplot_ctrl * h, char * ytitle) {
     sprintf(local_cmd, "set ylabel \"%s\"", ytitle);
     gplot_cmd(h, local_cmd);
     return;
-}
+} // gplot_set_ylabel
 
 void gplot_set_style(gplot_ctrl * h, char * style) {
     // Exemple: lines, points, linespoints
@@ -78,6 +89,6 @@ void gplot_set_style(gplot_ctrl * h, char * style) {
     sprintf(local_cmd, "set style \"%s\"", style);
     gplot_cmd(h, local_cmd);
     return;
-}
+} // gplot_set_style
 
 

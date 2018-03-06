@@ -39,6 +39,16 @@ int check_X_display(void);
 gplot_ctrl* gplot_init(void);
 
 /*************************************************************
+ * Nume: gplot_close()
+ * Intrare:
+ * Iesire: gplot_ctrl* 
+ * Functionalitate: Functia inchide sesiunea activa gnuplot, termina subprocesul si
+ *                  elibereaza resursele alocate
+ * Obs: 
+ *************************************************************/
+void gplot_close(gplot_ctrl *h);
+
+/*************************************************************
  * Nume: gplot_cmd()
  * Intrare: Handle pentru sesiunea activa: gplot_ctrl, lista variabila de argumente - argumente gnuplot
  * Iesire: 
