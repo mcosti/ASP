@@ -1,5 +1,4 @@
 #include "gplot.h"
-#include "stdlib.h"
 
 /*************************************************************
  * Nume: check_X_display()
@@ -26,6 +25,12 @@ int check_X_display(void) {
  * Obs: 
  *************************************************************/
 gplot_ctrl* gplot_init (void) {
-    
+    gplot_ctrl * handle;
+    if(check_X_display()) return NULL;
+    // Initializarea spatiului RAM pentru structura de control
+    if((handle = (gplot_ctrl *) malloc(sizeof(gplot_ctrl))) == NULL) {
+        fprintf(stdderr, "gplot_init(): Eroare alocare memorie \n");
+        return NULL;
+    }
 }
 
