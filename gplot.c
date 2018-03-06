@@ -55,3 +55,29 @@ void gplot_cmd(gplot_ctrl * h, char * cmd, ...) {
     return;
 } // gplot_cmd()
 
+void gplot_set_xlabel(gplot_ctrl * h, char * xtitle) {
+    if(check_X_display()) return;
+    char local_cmd[GP_CMD_SIZE];
+    sprintf(local_cmd, "set xlabel \"%s\"", xtitle);
+    gplot_cmd(h, local_cmd);
+    return;
+}
+
+void gplot_set_ylabel(gplot_ctrl * h, char * ytitle) {
+    if(check_X_display()) return;
+    char local_cmd[GP_CMD_SIZE];
+    sprintf(local_cmd, "set ylabel \"%s\"", ytitle);
+    gplot_cmd(h, local_cmd);
+    return;
+}
+
+void gplot_set_style(gplot_ctrl * h, char * style) {
+    // Exemple: lines, points, linespoints
+    if(check_X_display()) return;
+    char local_cmd[GP_CMD_SIZE];
+    sprintf(local_cmd, "set style \"%s\"", style);
+    gplot_cmd(h, local_cmd);
+    return;
+}
+
+

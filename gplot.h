@@ -48,7 +48,35 @@ gplot_ctrl* gplot_init(void);
 
 void gplot_cmd(gplot_ctrl * h, char * cmd, ...);
 
+/*************************************************************
+ * Nume: gplot_set_xlabel()
+ * Intrare: Handle pentru sesiunea activa: gplot_ctrl, string reprezentand numele axei X
+ * Iesire: 
+ * Functionalitate: Functia defineste numelei axei X in graficul produs de gnuplot
+ * Obs: 
+ *************************************************************/
 
+void gplot_set_xlabel(gplot_ctrl * h, char * xtitle);
+
+/*************************************************************
+ * Nume: gplot_set_ylabel()
+ * Intrare: Handle pentru sesiunea activa: gplot_ctrl, string reprezentand numele axei Y
+ * Iesire: 
+ * Functionalitate: Functia defineste numelei axei Y in graficul produs de gnuplot
+ * Obs: 
+ *************************************************************/
+
+void gplot_set_ylabel(gplot_ctrl * h, char * ytitle);
+
+/*************************************************************
+ * Nume: gplot_set_style()
+ * Intrare: Handle pentru sesiunea activa: gplot_ctrl, string reprezentand stilul de reprezentare grafica
+ * Iesire: 
+ * Functionalitate: Functia defineste stilul de reprezentare grafica pentru subprocesul gnuplot
+ * Obs: 
+ *************************************************************/
+
+void gplot_set_style(gplot_ctrl * h, char * style);
 
 #endif
 
