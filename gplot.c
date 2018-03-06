@@ -53,5 +53,5 @@ void gplot_cmd(gplot_ctrl * h, char * cmd, ...) {
     fputs(local_cmd, h->gp);
     fflush(h->gp); // Eliminam new line-ul din stream
     return;
-}
+} // gplot_cmd()
 
